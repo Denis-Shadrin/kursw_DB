@@ -1,0 +1,72 @@
+<div class="container custom-margin align-items-center">
+    <ul class="list-group">
+        <li class="list-group-item bg-secondary bg-opacity-50 border-0 text-center">
+            <div class="row mx-auto">
+				{{#each info_spec}}
+					<div class="row ">
+						<p class="fs-2 fw-bold text-decoration-underline text-white">
+						Образовательные программы по специальности
+						</p>
+					</div>
+					<div class="row">
+						<p class="fs-2 fw-bold text-decoration-underline text-white">
+						{{{spez}}} ( {{{uo}}}, {{{fo}}} ) 
+						</p>
+					</div>
+					<div class="row">
+						<p class="fs-2 fw-bold text-decoration-underline text-white">
+						 {{{kod}}} 
+						</p>
+					</div>
+				{{/each}}
+            </div>
+        </li>
+        <li class="list-group-item bg-secondary bg-opacity-50 border-0">
+		{{#each info}}
+                <div class="row">
+                    
+                    <div class="card bg-secondary bg-opacity-50">
+						<div class="row">
+							<div class="d-flex flex-column flex-sm-row align-items-start">
+								<div class="col-12 col-sm-3">
+									<div class="card-body d-flex flex-column justify-content-center">
+													<h5 class="card-title fw-bold"> {{{kurs}}} курс </h5>
+									</div>
+								</div>
+								
+								<div class="col-12 col-sm-3">
+									<div class="card-body d-flex flex-column justify-content-center">
+										<h5 class="card-title fw-bold"> {{{god}}} </h5>
+									</div>
+								</div>
+								
+								<div class="col-12 col-sm-3">
+									<div class="card-body d-flex flex-column justify-content-center">
+										<div class="col">
+											<h5 class="card-title fw-bold"> {{{stand}}} </h5>
+										</div>
+									</div>
+								</div>
+								<div class="col-12 col-sm-3">
+									<div class="card-body d-flex flex-column justify-content-center">
+										<div class="col">
+											<h5 class="card-title fw-bold"> {{{stoim }}} </h5>
+										</div>
+									</div>
+								</div>
+
+								
+							</div>
+						</div>
+						
+						
+						
+                    </div>
+					
+                </div>
+
+    {{/each}}
+        </li>
+        
+    </ul>
+</div>

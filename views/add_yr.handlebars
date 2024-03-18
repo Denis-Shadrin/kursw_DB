@@ -1,0 +1,26 @@
+<div class="container custom-margin align-items-center">
+
+<ul class="list-group">
+	<li class="list-group-item bg-secondary bg-opacity-50 border-0">
+		<p class="fs-2 fw-bold text-decoration-underline text-white">
+			Добавить юридическое лицо:
+		</p>
+	</li>
+	<li class="list-group-item  border-2 border-black border-top-0">
+		<form action="/add_yr" method="POST">
+			<input type="text" name="name" placeholder="Наименование организации" class="form-control custom-margin">
+			<input type="text" name="inn" placeholder="ИНН" class="form-control custom-margin">
+			<input type="text" name="ogrn" placeholder="ОГРН" class="form-control custom-margin">
+			<input type="text" name="adrreg" placeholder="Адрес регистрации" class="form-control custom-margin">
+			
+			<textarea class="form-control custom-margin" name="kontinfo" aria-label="With textarea" placeholder="Контактная информация" rows="7"></textarea>
+			
+			<div>
+				<p class="fs-2 fw-bold"></p>
+				<button type="submit" class="btn btn-warning">Подтвердить</button>
+			</div>
+		</form>
+	</li>
+	</li>
+</ul>
+</div>

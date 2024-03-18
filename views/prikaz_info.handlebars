@@ -1,0 +1,53 @@
+<div class="container custom-margin align-items-center">
+    <ul class="list-group">
+        <li class="list-group-item bg-secondary bg-opacity-50 border-0">
+            <div class="row">
+                {{#each g_info}}
+                    <div class="card bg-secondary bg-opacity-50">
+						<div class="row">
+							<div class="d-flex flex-column flex-sm-row align-items-start">
+								<div class="col-12 col-sm-4">
+									<div class="card-body d-flex flex-column justify-content-center">
+													<h5 class="card-title fw-bold"> Приказ: {{{num}}} </h5>
+									</div>
+								</div>
+								<div class="col-12 col-sm-4">
+									<div class="card-body d-flex flex-column justify-content-center">
+										<h5 class="card-title fw-bold"> от {{{date}}} </h5>
+									</div>
+								</div>
+								<div class="col-12 col-sm-4">
+									<div class="card-body d-flex flex-column justify-content-center">
+										<div class="col">
+											<h5 class="card-title fw-bold"> {{{type}}} </h5>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+                    </div>
+					{{/each}}
+            </div>
+        </li>
+        <li class="list-group-item bg-secondary bg-opacity-50 border-0">
+                <div class="row">
+						<table class="table table-bordered">
+							<thead>
+								<tr>
+									<th scope="col">Специальность</th>
+									<th scope="col">ФИО</th>
+								</tr>
+							</thead>
+							<tbody>
+								{{#each info}}
+								<tr>
+									<td>{{{spez}}}</td>
+									<td>{{{fio}}}</td>
+								</tr>
+								{{/each}}
+							</tbody>
+						</table>
+                </div> 
+        </li>
+    </ul>
+</div>

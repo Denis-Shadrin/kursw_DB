@@ -1,0 +1,66 @@
+<div class="container custom-margin align-items-center">
+    <ul class="list-group">
+        <li class="list-group-item bg-secondary bg-opacity-50 border-0">
+            <div class="row">
+                <div class="col-6">
+                    <p class="fs-2 fw-bold text-decoration-underline text-white">Специальности:</p>
+                </div>
+            </div>
+        </li>
+        <li class="list-group-item bg-secondary bg-opacity-50 border-0">
+		{{#each info}}
+                <div class="row">
+                    <div class="card bg-secondary bg-opacity-50">
+						<div class="row">
+							<div class="d-flex flex-column flex-sm-row align-items-start">
+								<div class="col-12 col-sm-2">
+									<div class="card-body d-flex flex-column justify-content-center">
+													<h5 class="card-title fw-bold"> {{{spez}}} </h5>
+									</div>
+								</div>
+								
+								<div class="col-12 col-sm-2">
+									<div class="card-body d-flex flex-column justify-content-center">
+										<h5 class="card-title fw-bold"> {{{srok}}} </h5>
+									</div>
+								</div>
+								
+								<div class="col-12 col-sm-2">
+									<div class="card-body d-flex flex-column justify-content-center">
+										<div class="col">
+											<h5 class="card-title fw-bold"> {{{kod}}} </h5>
+										</div>
+									</div>
+								</div>
+								<div class="col-12 col-sm-2">
+									<div class="card-body d-flex flex-column justify-content-center">
+										<div class="col">
+											<h5 class="card-title fw-bold"> {{{uo}}} </h5>
+										</div>
+									</div>
+								</div>
+								<div class="col-12 col-sm-2">
+									<div class="card-body d-flex flex-column justify-content-center">
+										<div class="col">
+											<h5 class="card-title fw-bold"> {{{fo}}} </h5>
+										</div>
+									</div>
+								</div>
+								<div class="col-12 col-sm-2">
+								<div class="card-body d-flex flex-column justify-content-center">
+										<div class="col">
+									<div class="btn-group">
+									<a href="/spec_prog/{{{pk}}}" class="btn btn-warning">Подробнее</a>
+									</div>
+									</div>
+									</div>
+								</div>
+							</div>
+						</div>
+                    </div>
+                </div>
+    {{/each}}
+        </li>
+        
+    </ul>
+</div>

@@ -1,0 +1,74 @@
+<div class="container custom-margin align-items-center">
+    <ul class="list-group">
+        
+        <li class="list-group-item bg-secondary bg-opacity-50 border-0">
+			
+			<div class="row">
+                <div class="col-3">
+                    <p class="fs-4 fw-bold text-decoration-underline text-white">Добавить приказ:</p>
+                </div>
+				<div class="col-9">
+					<div class="btn-group" role="group">
+						{{#each info_tp}}
+							<a href="/add_prikaz/{{{ps_tp}}}" class="btn btn-warning btn-spacing">{{{name}}}</a>
+						{{/each}}
+					</div>				
+                </div>
+            </div>
+			
+		
+            <div class="row">
+                <div class="col-2">
+                    <p class="fs-2 fw-bold text-decoration-underline text-white">Приказы:</p>
+                </div>
+				
+            </div>
+        </li>
+        <li class="list-group-item bg-secondary bg-opacity-50 border-0">
+                <div class="row">
+				{{#each info}}
+                    <div class="card bg-secondary bg-opacity-50">
+						<div class="row">
+							<div class="d-flex flex-column flex-sm-row align-items-start">
+								<div class="col-12 col-sm-3">
+									<div class="card-body d-flex flex-column justify-content-center">
+													<h5 class="card-title fw-bold"> {{{num}}} </h5>
+									</div>
+								</div>
+								
+								<div class="col-12 col-sm-3">
+									<div class="card-body d-flex flex-column justify-content-center">
+										<h5 class="card-title fw-bold"> {{{date}}} </h5>
+									</div>
+								</div>
+								
+								<div class="col-12 col-sm-3">
+									<div class="card-body d-flex flex-column justify-content-center">
+										<div class="col">
+											<h5 class="card-title fw-bold"> {{{type}}} </h5>
+										</div>
+									</div>
+								</div>
+								
+								<div class="col-12 col-sm-3">
+								<div class="card-body d-flex flex-column justify-content-center">
+										<div class="col">
+									<div class="btn-group">
+									<a href="/prikaz_info/{{{pk_p}}}" class="btn btn-warning">Подробнее</a>
+									</div>
+									</div>
+									</div>
+									
+								</div>
+								
+							</div>
+						</div>
+						
+						
+						
+                    </div>
+					{{/each}}
+                </div>
+        </li>
+    </ul>
+</div>

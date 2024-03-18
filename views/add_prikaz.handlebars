@@ -1,0 +1,102 @@
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var allStudentsSelect = document.getElementById('allStudents');
+        var selectedStudentsSelect = document.getElementById('selectedStudents');
+        var hiddenInput = document.getElementById('selected_students_input');
+
+        if (allStudentsSelect && selectedStudentsSelect && hiddenInput) {
+            allStudentsSelect.addEventListener('change', function () {
+                // Добавить выбранного студента в массив
+                var selectedValue = allStudentsSelect.value;
+                if (selectedValue) {
+                    // Создать новый option
+                    var option = new Option(allStudentsSelect.options[allStudentsSelect.selectedIndex].text, selectedValue);
+
+                    // Добавить option в selectedStudentsSelect
+                    selectedStudentsSelect.appendChild(option);
+
+                    // Сбросить выбор в allStudentsSelect
+                    allStudentsSelect.value = '';
+
+                    // Обновить скрытое поле перед отправкой формы
+                    updateHiddenInput();
+                }
+            });
+
+            selectedStudentsSelect.addEventListener('change', function () {
+                // Удалить выбранного студента из массива
+                var selectedValue = selectedStudentsSelect.value;
+                if (selectedValue) {
+                    // Удалить соответствующий option из selectedStudentsSelect
+                    selectedStudentsSelect.remove(selectedStudentsSelect.selectedIndex);
+
+                    // Обновить скрытое поле перед отправкой формы
+                    updateHiddenInput();
+                }
+            });
+        }
+
+        var myForm = document.getElementById('myForm');
+        if (myForm) {
+            myForm.addEventListener('submit', function (event) {
+                // Отменить стандартное действие формы
+                event.preventDefault();
+
+                // Повторная отправка формы
+                myForm.submit();
+
+                console.log('Form submitted!');
+            });
+        }
+
+        function updateHiddenInput() {
+            // Получить все выбранные значения из selectedStudentsSelect
+            var selectedValues = Array.from(selectedStudentsSelect.options).map(option => option.value);
+
+            // Обновить значение скрытого поля
+            hiddenInput.value = selectedValues.join(',');
+        }
+    });
+</script>
+
+
+<!-- Обновленный вариант HTML-разметки -->
+<div class="container custom-margin align-items-center">
+    <ul class="list-group">
+        <li class="list-group-item bg-secondary bg-opacity-50 border-0">
+            <p class="fs-2 fw-bold text-decoration-underline text-white">
+               Добавить приказ {{{name_pr}}}
+            </p>
+        </li>
+        <li class="list-group-item  border-2 border-black border-top-0">
+            <form id="myForm" action="/add_prikaz/{{{id}}}" method="POST">
+
+                <input type="text" name="num_doc" placeholder="Номер приказа" class="form-control custom-margin" required>
+
+                <h5 class="custom-margin">Дата приказа</h5>
+                <input type="date" name="date_pod" placeholder="Дата приказа" class="form-control custom-margin" required>
+
+                <select id="allStudents" class="form-control custom-margin">
+                    <option value="" disabled selected>Выберите студента</option>
+                    {{#each info_pers}}
+                        <option value="{{{potr}}}">{{{fio}}} {{{dr}}} {{{spez}}} {{{ur}}} {{{fo}}}</option>
+                    {{/each}}
+                </select>
+
+                <select id="selectedStudents" class="form-control custom-margin" multiple>
+                    <!-- Выбранные студенты будут отображены здесь -->
+                </select>
+
+                <!-- Скрытое поле для передачи выбранных студентов -->
+                <input type="hidden" id="selected_students_input" name="selected_students">
+
+                <div>
+                    <p class="fs-2 fw-bold"></p>
+                    <button type="submit" class="btn btn-warning">Подтвердить</button>
+                </div>
+            </form>
+        </li>
+    </ul>
+</div>
+
+

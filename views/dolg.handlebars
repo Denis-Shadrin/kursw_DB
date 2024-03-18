@@ -1,0 +1,43 @@
+<div class="container custom-margin align-items-center">
+    <ul class="list-group">
+        <li class="list-group-item bg-secondary bg-opacity-50 border-0">
+            <div class="row">
+                <div class="col-6">
+				<p class="fs-2 fw-bold text-decoration-underline text-white">Должники:</p>
+                </div>
+            </div>
+        </li>
+        <li class="list-group-item bg-secondary bg-opacity-50 border-0">
+                <div class="row">
+                    <div class="col-12">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Номер договора</th>
+                                    <th scope="col">Студент</th>
+                                    <th scope="col">Контакты студента</th>
+                                    <th scope="col">Заказчик</th>
+                                    <th scope="col">Контакты заказчика</th>
+									<th scope="col">Срок</th>
+                                    <th scope="col">Сумма</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+								{{#each info}}
+                                <tr>
+                                    <td>{{{num}}}</td>
+                                    <td>{{{stud}}}</td>
+                                    <td>{{{stud_info}}}</td>
+                                    <td>{{{zak}}}</td>
+									<td>{{{zak_info}}}</td>
+                                    <td>{{{sroc}}}</td>
+                                    <td>{{{dolg}}}</td>
+                                </tr>
+								{{/each}}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+        </li>
+    </ul>
+</div>

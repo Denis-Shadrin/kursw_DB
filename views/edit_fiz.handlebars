@@ -1,0 +1,45 @@
+<div class="container custom-margin align-items-center">
+    <ul class="list-group">
+        <li class="list-group-item bg-secondary bg-opacity-50 border-0">
+            <p class="fs-2 fw-bold text-decoration-underline text-white">
+                Изменить физическое лицо:
+            </p>
+        </li>
+        <li class="list-group-item  border-2 border-black border-top-0">
+            <form action="/edit_fiz/{{data.pk}}" method="POST">
+                <input type="text" name="fio" placeholder="ФИО" class="form-control custom-margin"  value="{{data.fio}}" required>
+                
+				<select name="pk_tippasporta" class="form-control custom-margin" required>
+					<option value="" disabled selected>Выберите тип документа</option>
+				
+					{{#each info}}
+						<option value="{{{pk_tp}}}" {{#if (equals pk_tp ../data.pk_pt)}}selected{{/if}}>
+							{{{name}}}
+						</option>
+					{{/each}}
+				</select>
+
+
+				
+				<input type="text" name="id" placeholder="Номер документа удостоверяющего личность" class="form-control custom-margin" value="{{data.id}}" oninput="this.value = this.value.replace(/[^0-9]/g, '');">
+				
+                <input type="text" name="kemvidan" placeholder="Кем выдан документ" class="form-control custom-margin" value="{{data.kemvidan}}" required>
+                <h5 class="custom-margin">Когда выдан документ</h5>
+                <input type="date" name="kogdavidan" placeholder="Когда выдан документ" class="form-control custom-margin" value="{{formatDate data.kog}}" required>
+                
+                <input type="text" name="inn" placeholder="ИНН" class="form-control custom-margin" value="{{data.inn}}" oninput="this.value = this.value.replace(/[^0-9]/g, '');">
+                 <h5 class="custom-margin">Дата рождения</h5>
+                <input type="date" name="daterozhd" placeholder="Дата рождения" class="form-control custom-margin" value="{{formatDate data.dr}}" required>
+                
+                <input type="text" name="adrreg" placeholder="Адрес регистрации" class="form-control custom-margin" value="{{data.adrreg}}" required>
+                
+                <textarea class="form-control custom-margin" name="kontinfo" aria-label="With textarea" placeholder="Контактная информация" rows="7" required>{{data.kontinfo}}</textarea>
+                
+                <div>
+                    <p class="fs-2 fw-bold"></p>
+                    <button type="submit" class="btn btn-warning">Подтвердить</button>
+                </div>
+            </form>
+        </li>
+    </ul>
+</div>

@@ -1,0 +1,60 @@
+<div class="container custom-margin align-items-center">
+    <ul class="list-group">
+        <li class="list-group-item bg-secondary bg-opacity-50 border-0">
+            <div class="row">
+                <div class="col-6">
+                    <p class="fs-2 fw-bold text-decoration-underline text-white">Список всех юридических лиц:</p>
+                </div>
+                <div class="col-6 text-end">
+                    <a href="/add_yr" class="btn btn-warning">Добавить</a>
+                </div>
+            </div>
+        </li>
+        <li class="list-group-item bg-secondary bg-opacity-50 border-0">
+
+                {{#each general_information}}
+                <div class="row">
+                    <div class="card bg-secondary bg-opacity-50">
+                        <div class="d-flex flex-column flex-sm-row align-items-start">
+                            <div class="col-12 col-sm-6">
+                                <div class="card-body d-flex flex-column justify-content-center">
+                                    <div class="col">
+                                        <h5 class="card-title fw-bold">{{{name}}}</h5>
+
+                                        <h5 class="card-title">
+                                            <span class="fw-bold">ИНН: {{{inn}}}</span>
+                                            <span></span>
+                                        </h5>
+										
+										<h5 class="card-title fw-bold">ОГРН: {{{orgn}}}</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <div class="card-body d-flex flex-column justify-content-center">
+                                    <div class="col">
+                                        <h5 class="card-title">
+                                            <span class="fw-bold">Адрес регистрации: </span>
+                                            <span>{{{adr}}}</span>
+                                        </h5>
+                                        <h5 class="card-title">
+                                            <span class="fw-bold">Контактная информация: </span>
+                                            <span>{{{info}}}</span>
+                                        </h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-4 align-self-end">
+                            <div class="card-body d-flex align-items-end justify-content-end">
+                                <div class="btn-group">
+                                    <a href="/edit_yr/{{{pk}}}" class="btn btn-warning">Редактировать</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{/each}}
+        </li>
+    </ul>
+</div>

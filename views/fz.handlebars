@@ -1,0 +1,83 @@
+<div class="container custom-margin align-items-center">
+    <ul class="list-group">
+        <li class="list-group-item bg-secondary bg-opacity-50 border-0">
+            <div class="row">
+                <div class="col-6">
+                    <p class="fs-2 fw-bold text-decoration-underline text-white">Список всех физических лиц:</p>
+                </div>
+                <div class="col-6 text-end">
+                    <a href="/add_fiz" class="btn btn-warning">Добавить</a>
+                </div>
+            </div>
+        </li>
+        <li class="list-group-item bg-secondary bg-opacity-50 border-0">
+            <form action="/fz_form" method="POST">
+                {{#each fz}}
+                <div class="row">
+                    <div class="card bg-secondary bg-opacity-50">
+                        <div class="d-flex flex-column flex-sm-row align-items-start">
+                            <div class="col-12 col-sm-4">
+                                <div class="card-body d-flex flex-column justify-content-center">
+                                    <div class="col">
+                                        <h5 class="card-title fw-bold">{{{fio}}}</h5>
+                                        <h5 class="card-title">
+                                            <span class="fw-bold">Номер паспорта: </span>
+                                            <span>{{{id}}}</span>
+                                        </h5>
+                                        <h5 class="card-title">
+                                            <span class="fw-bold">ИНН: </span>
+                                            <span>{{{inn}}}</span>
+                                        </h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-4">
+                                <div class="card-body d-flex flex-column justify-content-center">
+                                    <div class="col">
+                                        <h5 class="card-title">
+                                            <span class="fw-bold">Адрес регистрации: </span>
+                                            <span>{{{ard}}}</span>
+                                        </h5>
+                                        <h5 class="card-title">
+                                            <span class="fw-bold">Когда выдан паспорт: </span>
+                                            <span>{{{kog}}}</span>
+                                        </h5>
+                                        <h5 class="card-title">
+                                            <span class="fw-bold">Кем выдан паспорт: </span>
+                                            <span>{{{kem}}}</span>
+                                        </h5>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-sm-4">
+                                <div class="card-body d-flex flex-column justify-content-center">
+                                    <div class="col">
+                                        <h5 class="card-title">
+                                            <span class="fw-bold">День рождения: </span>
+                                            <span>{{{dr}}}</span>
+                                        </h5>
+                                        <h5 class="card-title">
+                                            <span class="fw-bold">Контактная информация: </span>
+                                            <span>{{{info}}}</span>
+                                        </h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-4 align-self-end">
+                            <div class="card-body d-flex align-items-end justify-content-end">
+                                <div class="btn-group">
+									<a href="/fz_full/{{{pk}}}" class="btn btn-success">Подробнее</a>
+                                    <a href="/edit_fiz/{{{pk}}}" class="btn btn-warning">Редактировать</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{/each}}
+            </form>
+        </li>
+        
+    </ul>
+</div>

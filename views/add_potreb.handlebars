@@ -1,0 +1,65 @@
+<script>
+  $(document).ready(function(){
+    // Применяем маску к полю ввода
+    $('input[name="ucheb_period"]').inputmask('9999/9999', { placeholder: 'гггг/гггг' });
+  });
+</script>
+
+<div class="container custom-margin align-items-center">
+    <ul class="list-group">
+        <li class="list-group-item bg-secondary bg-opacity-50 border-0">
+            <p class="fs-2 fw-bold text-decoration-underline text-white">
+                Добавить договор
+            </p>
+        </li>
+        <li class="list-group-item  border-2 border-black border-top-0">
+            <form action="/add_potreb/{{{id}}}" method="POST">
+				
+				
+				<select name="pk_spez_2" class="form-control custom-margin" required>
+                    <option value="" disabled selected>Выберите специальность</option>
+					
+					{{#each info_spec}}
+					<option value="{{{pk_spez}}}">{{{kodspez}}} {{{spez}}} ({{{ur}}},{{{fo}}})</option>
+					{{/each}}
+
+                </select>
+				
+				
+					
+				<input type="text" name="num_doc" placeholder="Номер договора" class="form-control custom-margin" required>
+				<h5 class="custom-margin">Дата подписания</h5>
+				<input type="date" name="date_pod" placeholder="Дата подписания" class="form-control custom-margin" required>
+				<h5 class="custom-margin">Планируемая дата закрытия договора</h5>
+				<input type="date" name="date_rastor" placeholder="Планируемая дата закрытия договора" class="form-control custom-margin" required>
+				
+				<input type="text" name="kurs" placeholder="Номер курса" class="form-control custom-margin" oninput="this.value = this.value.replace(/[^0-9]/g, '');">
+				
+				<input type="text" name="ucheb_period" placeholder="Учебный период" class="form-control custom-margin" required>
+				<h5 class="custom-margin">Крайний срок оплаты договора</h5>
+				<input type="date" name="sroc_oplaty" placeholder="Крайний срок оплаты договора" class="form-control custom-margin" required>
+				
+				<input type="text" name="bank_rek" placeholder="Реквизиты заказчика" class="form-control custom-margin" required>
+				
+				<select name="pk_tip" class="form-control custom-margin" required>
+                    <option value="" disabled selected>Выберите тип заказчика</option>
+					
+					{{#each info_zak}}
+					<option value="{{{pk}}}">{{{name}}}</option>
+					{{/each}}
+
+                </select>
+				
+				
+                <input type="text" name="name" placeholder="Заказчик (ФИО или наименование организации)" class="form-control custom-margin" required>
+                
+                <input type="text" name="inn" placeholder="ИНН" class="form-control custom-margin" oninput="this.value = this.value.replace(/[^0-9]/g, '');">
+
+                <div>
+                    <p class="fs-2 fw-bold"></p>
+                    <button type="submit" class="btn btn-warning">Подтвердить</button>
+                </div>
+            </form>
+        </li>
+    </ul>
+</div>
